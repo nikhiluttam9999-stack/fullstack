@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Task Manager</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Team Task Manager</h1>
+      <p>Simplified project and task dashboard with role-based access.</p>
+    </header>
+
+    <section id="auth-section">
+      <div class="card auth-card">
+        <div class="tabs">
+          <button id="show-login" class="tab active">Login</button>
+          <button id="show-signup" class="tab">Signup</button>
+        </div>
+        <form id="login-form" class="form">
+          <label>Email</label>
+          <input type="email" id="login-email" required />
+          <label>Password</label>
+          <input type="password" id="login-password" required />
+          <button type="submit">Login</button>
+        </form>
+        <form id="signup-form" class="form hidden">
+          <label>Username</label>
+          <input type="text" id="signup-username" required />
+          <label>Email</label>
+          <input type="email" id="signup-email" required />
+          <label>Password</label>
+          <input type="password" id="signup-password" required />
+          <button type="submit">Signup</button>
+        </form>
+        <div id="auth-message" class="message"></div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="topbar">
+        <div>
+          <strong id="welcome-text"></strong>
+          <span id="role-text"></span>
+        </div>
+        <button id="logout">Logout</button>
+      </div>
+
+      <div id="admin-panel" class="hidden">
+        <div class="card">
+          <h2>Create Project</h2>
+          <form id="create-project-form">
+            <input type="text" id="project-name" placeholder="Project name" required />
+            <textarea id="project-description" placeholder="Description"></textarea>
+            <button type="submit">Create Project</button>
+          </form>
+          <div id="project-message" class="message"></div>
+        </div>
+
+        <div class="card">
+          <h2>Create Task</h2>
+          <form id="create-task-form">
+            <input type="text" id="task-title" placeholder="Task title" required />
+            <textarea id="task-description" placeholder="Description"></textarea>
+            <input type="date" id="task-due-date" />
+            <input type="number" id="task-project-id" placeholder="Project ID" required />
+            <input type="email" id="task-assignee-email" placeholder="Assignee email" required />
+            <button type="submit">Create Task</button>
+          </form>
+          <div id="task-message" class="message"></div>
+        </div>
+
+        <div class="card">
+          <h2>Add Member to Project</h2>
+          <form id="add-member-form">
+            <input type="number" id="member-project-id" placeholder="Project ID" required />
+            <input type="email" id="member-email" placeholder="Member email" required />
+            <button type="submit">Add Member</button>
+          </form>
+          <div id="member-message" class="message"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Your Projects</h2>
+        <div id="project-list" class="list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Your Tasks</h2>
+        <div id="task-list" class="list"></div>
+      </div>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
